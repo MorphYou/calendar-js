@@ -269,3 +269,10 @@ i{
       transform: translateY(0);
     }
   }
+
+#yearNav, #monthNav{
+    background-color: rgb(61, 61, 61);
+    color: rgb(204, 204, 204);
+    border: none;
+    width: 25%;
+}

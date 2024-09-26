@@ -6,13 +6,28 @@ let date    = new Date();
 let completeTask, editTask, tempPage;
 let actualDate = date;
 
-
+let select = document.querySelector("select");
+     aMonths.forEach(month => {
+          let option = document.createElement("option");
+          option.innerText = month;
+          if(date.getMonth() == aMonths.indexOf(month)){
+               option.selected = true;
+          }
+          select.appendChild(option);
+     });
 
 //listeners
 document.querySelector('#prev').addEventListener('click',PrevMonth);
 document.querySelector('#next').addEventListener('click',NextMonth);
 
 //funkcje
+function setDate(){
+     if(document.querySelector("#yearNav").value.length == 4){
+          date = new Date(document.querySelector("#yearNav").value, aMonths.indexOf(document.querySelector("#monthNav").value), 1);
+          Calendar();
+     }
+}
+
 function PrevMonth(){
      date = new Date(date.getFullYear(), date.getMonth() - 1, 1);
      Calendar();
@@ -37,7 +52,10 @@ function Calendar(){
 
      }
 
-     document.querySelector('#calendar_top').innerHTML = aMonths[date.getMonth()] + ' ' + date.getFullYear();
+     document.querySelector("#monthNav").addEventListener("input", setDate);
+     document.querySelector("#yearNav").value = date.getFullYear();
+     document.querySelector("#yearNav").addEventListener("input", setDate);
+
 
      let dzien = 1;
      let CalTasks;
@@ -181,7 +199,7 @@ function UpdateTaskList(){
                     function EditTask(){
                          //WTF!!!!!!
                          task.title = inputTitle.value;
-                         task.text = textareaText.innerHTML;
+                         task.text = textareaText.value;
                          console.log(task.title);
                          console.log(task.text);
 
