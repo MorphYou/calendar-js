@@ -1,6 +1,11 @@
 //zmienne
 
-let tasks = JSON.parse(localStorage.getItem("tasks"));
+let tasks = new Array();
+
+if(localStorage.getItem("tasks")){
+     tasks = JSON.parse(localStorage.getItem("tasks"));
+
+}
 
 let aMonths = new Array('styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzień');
 let date    = new Date();
