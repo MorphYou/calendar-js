@@ -5,26 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kalendarz</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="calendar">
-        <table id="calendar">
-            <thead>
-            <tr>
-            <td><button id="prev">&larr;</button></td>
-            <td colspan="5" id="calendar_top">Miesiąc</td>
-            <td><button id="next">&rarr;</button></td>
-            <tr><td>pon</td><td>wto</td><td>śro</td><td>czw</td><td>pią</td><td>sob</td><td>nie</td></tr></thead>
-            <tbody>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
-            </tbody>
-            </table>
-    </div>
+    <aside>
+        <h3 id="watch-date"></h3>
+        <h2 id="watch-time"></h2>
+    </aside>
+    <article>
+        <div id="calendarD">
+            <table id="calendar">
+                <thead>
+                    <tr>
+                    <td id="prev"><h3>&larr;</h3></td>
+                    <td colspan="5" id="calendar_top">Miesiąc</td>
+                    <td id="next"><h3>&rarr;</h3></td>
+                    <tr><td>pon</td><td>wto</td><td>śro</td><td>czw</td><td>pią</td><td>sob</td><td>nie</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr>
+                </tbody>
+                </table>
+        </div>
+        <div id="tasks">
+            <div id="task-manager-nav">
+                <h2>Tasks (0)</h2>
+            </div>
+            <div id="task-manager">
+            </div>
+        </div>
+    </article>
 </body>
 </html>
