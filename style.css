@@ -145,7 +145,7 @@ tbody tr td{
     position: fixed;
     top: calc(35vh);
     left: calc(42vw);
-    p{
+    .vv{
         align-self: flex-end;
         cursor: pointer;
     }
@@ -174,7 +174,7 @@ tbody tr td{
     position: fixed;
     top: calc(35vh);
     left: calc(42vw);
-    p{
+    .vv{
         align-self: flex-end;
         cursor: pointer;
     }
@@ -275,4 +275,13 @@ i{
     color: rgb(204, 204, 204);
     border: none;
     width: 25%;
+}
+.divNavEditBox{
+    display: flex;
+    height: 30px;
+    .aa{
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+    }
 }

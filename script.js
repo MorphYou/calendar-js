@@ -1,5 +1,6 @@
 //zmienne
-let tasks = new Array();
+
+let tasks = JSON.parse(localStorage.getItem("tasks"));
 
 let aMonths = new Array('styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzień');
 let date    = new Date();
@@ -89,6 +90,7 @@ function Calendar(){
 }
 
 function UpdateTaskList(){
+     localStorage.setItem("tasks", JSON.stringify(tasks));
      tasks.sort((x, y) => x.date - y.date);
      const tasksSelector = document.querySelector("#tasks");
      let lengTasks = document.querySelector("#tasks h2");
@@ -174,8 +176,15 @@ function UpdateTaskList(){
                     let x = document.createElement("p");
                     x.innerText = "X";
                     x.addEventListener("click", ClosePage);
-                    let h3 = document.createElement("h3");
-                    h3.innerText = "Edytujesz notatkę na dzien: "+((dateTask.getDate() < 10) ? '0' : '')+""+dateTask.getDate()+"-"+((parseInt((dateTask.getMonth())+1) < 10) ? '0' : '')+""+parseInt((dateTask.getMonth())+1)+"-"+dateTask.getFullYear();
+                    x.classList.add("vv");
+                    let divNav = document.createElement("div");
+                    divNav.classList.add("divNavEditBox");
+                    let h3 = document.createElement("p");
+                    h3.classList.add("aa");
+                    h3.innerText = "Edytujesz notatkę na dzien:";
+                    let dateEdit = document.createElement("input");
+                    dateEdit.setAttribute("type", "date");
+                    dateEdit.value = dateTask.getFullYear()+"-"+((parseInt((dateTask.getMonth())+1) < 10) ? '0' : '')+""+parseInt((dateTask.getMonth())+1)+"-"+((dateTask.getDate() < 10) ? '0' : '')+""+dateTask.getDate();
                     let inputTitle = document.createElement("input");
                     inputTitle.setAttribute("type", "text");
                     inputTitle.setAttribute("id", "title");
@@ -189,7 +198,9 @@ function UpdateTaskList(){
                     buttonEditTask.addEventListener("click", EditTask);
                     body.appendChild(divEditPage);
                     divEditPage.appendChild(x);
-                    divEditPage.appendChild(h3);
+                    divEditPage.appendChild(divNav);
+                    divNav.appendChild(h3);
+                    divNav.appendChild(dateEdit);
                     divEditPage.appendChild(inputTitle);
                     divEditPage.appendChild(textareaText);
                     divEditPage.appendChild(buttonEditTask);
@@ -197,9 +208,9 @@ function UpdateTaskList(){
                     ShowBlur();
 
                     function EditTask(){
-                         //WTF!!!!!!
                          task.title = inputTitle.value;
                          task.text = textareaText.value;
+                         task.date = Date.parse(dateEdit.value);
                          console.log(task.title);
                          console.log(task.text);
 
